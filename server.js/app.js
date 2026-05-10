@@ -37,10 +37,6 @@ app.use((req, res, next) => {
 // 3. Body parser
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Chess Backend is running perfectly!');
-});
-
 app.use('/api/v1/chess', router);
 app.use('/api/v1/users', userRouter);
 
