@@ -20,7 +20,7 @@ export const SocketProvider = ({ children }) => {
     }
 
     console.log('Connecting socket...')
-    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3000'
+    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://chess-com-wwgy.onrender.com'
     const newSocket = io(SOCKET_URL, {
       auth: { token },
       query: { token },
