@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'https://chess-com-wwgy.onrender.com/api/v1'
-console.log('DEBUG: API_URL being used:', API_URL);
-const normalizedApiUrl = API_URL.endsWith('/') ? API_URL : `${API_URL}/`
+const API_URL = '/api/v1'
+console.log('DEBUG: Using Unified relative API_URL:', API_URL);
+const normalizedApiUrl = `${API_URL}/`
 
 const api = axios.create({
   baseURL: normalizedApiUrl,

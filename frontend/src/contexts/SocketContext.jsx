@@ -20,8 +20,8 @@ export const SocketProvider = ({ children }) => {
     }
 
     console.log('Connecting socket...')
-    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://chess-com-wwgy.onrender.com'
-    const newSocket = io(SOCKET_URL, {
+    // No URL needed - it will automatically connect to the domain serving the page!
+    const newSocket = io({
       auth: { token },
       query: { token },
       transports: ['websocket', 'polling'],
