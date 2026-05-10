@@ -17,19 +17,19 @@ mongoose.connect(mongoUri, {
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) => console.error('MongoDB connection failed:', err.message));
 
-// Use built-in middleware
-app.use(express.json());
-
-// Permissive CORS for production
+// 1. Aggressive CORS at the very top
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept');
+  res.setHeader('Access-Control-Allow-Headers', '*');
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }
   next();
 });
+
+// 2. Body parser
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Chess Backend is running perfectly!');
