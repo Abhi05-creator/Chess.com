@@ -20,7 +20,8 @@ export const SocketProvider = ({ children }) => {
     }
 
     console.log('Connecting socket...')
-    const newSocket = io('http://localhost:3000', {
+    const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3000'
+    const newSocket = io(SOCKET_URL, {
       auth: { token },
       query: { token },
       transports: ['websocket', 'polling'],

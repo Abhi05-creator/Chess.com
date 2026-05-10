@@ -1,59 +1,80 @@
-Chess.com Clone ♟️
+# Chess.com Clone ♟️
 
+A real-time multiplayer chess application built with the MERN stack (MongoDB, Express, React, Node.js) and Socket.IO.
 
-A real-time multiplayer chess app built with the MERN stack and Socket.IO — because sometimes you just want to play chess at 2am against a stranger on the internet.
+## ✨ Features
+* **Real-time Multiplayer:** Play against other users instantly using WebSockets.
+* **Rank-based Matchmaking:** Find opponents with a similar skill level automatically.
+* **Authentication:** Secure user login and registration system using JWT.
+* **Interactive Chessboard:** Drag-and-drop piece movement with built-in move validation.
+* **Game History & Dashboard:** View your past games, wins, losses, and overall ranking.
 
- What it does
+## 🛠️ Tech Stack
+* **Frontend:** React, Tailwind CSS, `react-chessboard`, `chess.js`
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (Mongoose)
+* **Real-time Communication:** Socket.IO
 
-Real-time multiplayer — moves sync instantly between players over WebSockets. No refreshing, no waiting.
-Rank-based matchmaking — you'll be paired with someone around your skill level, not a grandmaster who'll end it in 8 moves.
-Auth system — JWT-based login and registration, so your stats are actually yours.
-Drag-and-drop board — built with react-chessboard and chess.js, so illegal moves are simply not an option.
-Game history & dashboard — see every game you've played, your win/loss record, and where you stand on the leaderboard.
+## 🚀 Getting Started
 
+Follow these beginner-friendly steps to get the project up and running on your local machine!
 
- Tech Stack
-LayerToolsFrontendReact, Tailwind CSS, react-chessboard, chess.jsBackendNode.js, Express.jsDatabaseMongoDB (Mongoose)Real-timeSocket.IO
- 
-Getting Started
-Prerequisites
-Make sure you have these installed before anything else:
+### Prerequisites
+Make sure you have the following installed on your computer:
+* [Node.js](https://nodejs.org/) (v16 or higher)
+* Git
 
-Node.js v16+
-Git
-
-1. Clone the repo
-bashgit clone https://github.com/Abhi05-creator/Chess.com.git
+### 1. Clone the repository
+Open your terminal and run:
+```bash
+git clone https://github.com/Abhi05-creator/Chess.com.git
 cd Chess.com
-2. Install dependencies
-This project has two separate environments — backend at the root, frontend in its own folder.
-bash# Backend
-npm install
+```
 
-# Frontend
+### 2. Install Dependencies
+You need to install the required packages for both the backend and the frontend.
+
+**Backend:**
+```bash
+npm install
+```
+
+**Frontend:**
+```bash
 cd frontend
 npm install
 cd ..
-3. Set up environment variables
-Create a .env file in the root directory:
-envMONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=some_long_random_secret_string
-PORT=5000
+```
 
-Using MongoDB Atlas? Just paste your Atlas connection string as MONGODB_URI and you're good to go.
+### 3. Environment Setup
+Create a new file named `config.env` in the root folder of the project (`Chess.com/config.env`) and paste the following configuration inside it:
 
-4. Run the app
-You'll need two terminals open — one for each server.
-Terminal 1 — Backend:
-bashnpm run dev
-Terminal 2 — Frontend:
-bashcd frontend
+```env
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/chess
+JWT_SECRET=your_super_secret_jwt_key_here
+```
+*(Note: If you are using MongoDB Atlas instead of a local database, replace the `MONGODB_URI` with your connection string).*
+
+### 4. Run the Application
+You will need to keep two terminal windows open—one for the backend and one for the frontend.
+
+**Start the Backend Server:**
+Open a terminal in the root directory and run:
+```bash
 npm run dev
-Then open http://localhost:5173 in your browser. That's it.
+```
 
-🎮 How to play
+**Start the Frontend Server:**
+Open a new terminal, navigate to the frontend folder, and run:
+```bash
+cd frontend
+npm run dev
+```
 
-Sign up or log in to create your account
-Head to your Dashboard and hit Find Match
-Wait a moment while the matchmaker finds you an opponent
-Once connected — drag, drop, and don't blunder your queen
+The frontend will start running. Click the local link provided in the terminal (usually `http://localhost:5173`) to open the app in your browser!
+
+## 🎮 How to Play
+1. **Sign Up / Log In:** Create a new account.
+2. **Find a Match:** Go to your Dashboard and click **Find Match**.
+3. **Play:** Wait for another online player to be matched with you. Once connected, drag and drop the chess pieces to make your moves!
