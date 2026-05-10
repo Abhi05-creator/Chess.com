@@ -1,9 +1,10 @@
 import axios from 'axios'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/v1'
+const normalizedApiUrl = API_URL.endsWith('/') ? API_URL : `${API_URL}/`
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: normalizedApiUrl,
   headers: {
     'Content-Type': 'application/json'
   },
@@ -71,21 +72,21 @@ api.interceptors.response.use(
 )
 
 // Auth APIs
-export const login = (email, password) => api.post('/users/login', { email, password })
-export const signup = (username, email, password) => api.post('/users/signup', { username, email, password })
+export const login = (email, password) => api.post('users/login', { email, password })
+export const signup = (username, email, password) => api.post('users/signup', { username, email, password })
 
 // User APIs
-export const getAllUsers = () => api.get('/users')
-export const getUserById = (id) => api.get(`/users/${id}`)
-export const findMatch = () => api.post('/users/match/find')
+export const getAllUsers = () => api.get('users')
+export const getUserById = (id) => api.get(`users/${id}`)
+export const findMatch = () => api.post('users/match/find')
 
 // Game APIs
-export const getAllGames = () => api.get('/chess')
-export const getGame = (id) => api.get(`/chess/${id}`)
-export const createGame = (data) => api.post('/chess', data)
-export const makeMove = (id, move) => api.patch(`/chess/${id}`, { move })
-export const exitGame = (gameId) => api.post('/chess/exit', { gameId })
-export const deleteGame = (id) => api.delete(`/chess/${id}`)
+export const getAllGames = () => api.get('chess')
+export const getGame = (id) => api.get(`chess/${id}`)
+export const createGame = (data) => api.post('chess', data)
+export const makeMove = (id, move) => api.patch(`chess/${id}`, { move })
+export const exitGame = (gameId) => api.post('chess/exit', { gameId })
+export const deleteGame = (id) => api.delete(`chess/${id}`)
 
 // Retry wrapper for failed requests
 export const withRetry = async (apiCall, maxRetries = 3) => {
