@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "chess.js": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.1",
+    "nodemon": "^3.1.14"
+  }
+}
